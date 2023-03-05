@@ -10,6 +10,9 @@ export default class Haiku {
     if (this.line1 && this.line2 && this.line3) {
       lineCount = 3;
     }
-    return true;
-};
+    if (lineCount === 3){
+      return true;
+    }
+    return false;
+  };
 };
