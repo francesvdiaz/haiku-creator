@@ -9,6 +9,6 @@ describe('Haiku', () => {
   });
   test('it should check to ensure haiku has 3 lines', () => {
     const newHaiku = new Haiku(0,0,0);
-    expect(newHaiku.validHaiku).toEqual(true);
+    expect(newHaiku.validHaiku()).toBeTruthy();
   });
 });
