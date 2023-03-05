@@ -6,6 +6,10 @@ export default class Haiku {
   }
 
   validHaiku = () => {
+    let lineCount = 0;
+    if (this.line1 && this.line2 && this.line3) {
+      lineCount = 3;
+    }
     return true;
 };
 };
