@@ -11,11 +11,17 @@ describe('Haiku', () => {
 describe('validLineCount', () => {
   test('it should check to ensure haiku has 3 lines', () => {
     const newHaiku = new Haiku(1, 1, 1);
-    expect(newHaiku.validHaiku()).toBeTruthy();
+    expect(newHaiku.validLineCount()).toBeTruthy();
   });
   test('it should return false if a haiku does not have 3 lines', () => {
     const newHaiku = new Haiku(0, 0);
-    expect(newHaiku.validHaiku()).toBeFalsy();
+    expect(newHaiku.validLineCount()).toBeFalsy();
   });
 })
+describe('validSyllableCount', () => {
+  test('it should check to ensure the haiku has valid syllable counts for each line', () => {
+    const newHaiku = new Haiku(1, 1, 1);
+    expect(newHaiku.validSyllableCount()).toBeTruthy();
+  });
+});
  

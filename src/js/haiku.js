@@ -5,14 +5,18 @@ export default class Haiku {
     this.line3 = line3;
   }
 
-  validHaiku = () => {
-    let lineCount = 0;
+  validLineCount = () => {
+    let lineCount = 0; //checking for 3 lines
     if (this.line1 && this.line2 && this.line3) {
       lineCount = 3;
     }
     if (lineCount === 3){
       return true;
     }
+    return false;
+  };
+
+  validSyllableCount = () => {
     return false;
   };
 };
