@@ -2,26 +2,24 @@ import Haiku from './../src/js/Haiku.js';
 
 describe('Haiku', () => {
   test('should correctly create a haiku object with 3 lines', () => {
-    const newHaiku = new Haiku(1, 1, 1);
-    expect(newHaiku.line1).toEqual(1);
-    expect(newHaiku.line2).toEqual(1);
-    expect(newHaiku.line3).toEqual(1);
+    const newHaiku = new Haiku('line1', 'line2', 'line3');
+    expect(newHaiku.validLineCount()).toBe(true);
   });
 });
 describe('validLineCount', () => {
-  test('it should check to ensure haiku has 3 lines', () => {
-    const newHaiku = new Haiku(1, 1, 1);
-    expect(newHaiku.validLineCount()).toBeTruthy();
+  test('it should return true if a haiku has 3 lines', () => {
+    const newHaiku = new Haiku('line1', 'line2', 'line3');
+    expect(newHaiku.validLineCount()).toBe(true);
   });
-  test('it should return false if a haiku does not have 3 lines', () => {
-    const newHaiku = new Haiku(0, 0);
-    expect(newHaiku.validLineCount()).toBeFalsy();
-  });
-})
-describe('validSyllableCount', () => {
-  test('it should check to ensure the haiku has valid syllable counts for each line', () => {
-    const newHaiku = new Haiku(1, 1, 1);
-    expect(newHaiku.validSyllableCount()).toBeTruthy();
+  test('it should return false if a haiku has less than 3 lines', () => {
+    const newHaiku = new Haiku('line1', 'line2');
+    expect(newHaiku.validLineCount()).toBe(false);
   });
 });
- 
+describe('validSyllableCount', () => {
+  test('it should return true if a haiku has the valid syllable count', () => {
+    const newHaiku = new Haiku('An old silent pond', 'A frog jumps into the pond-', 'Splash! Silence again.');
+    expect(newHaiku.validSyllableCount()).toBe(true);
+  });
+});
+
