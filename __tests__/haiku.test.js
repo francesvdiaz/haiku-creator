@@ -17,9 +17,30 @@ describe('validLineCount', () => {
   });
 });
 describe('validSyllableCount', () => {
-  test('it should return true if a haiku has the valid syllable count', () => {
-    const newHaiku = new Haiku('An old silent pond', 'A frog jumps into the pond-', 'Splash! Silence again.');
+  const placeholderCountSyllables = (line) => {
+    if (line === 'An old silent pond') {
+      return 5;
+    } else if (line === 'A frog jumps into the pond') {
+      return 7;
+    } else if (line === 'Splash! Silence again.') {
+      return 5;
+    } else {
+      return 0;
+    };
+  };
+  beforeEach(() => {
+    Haiku.prototype.countSyllables = placeholderCountSyllables;
+  });
+  afterEach (() => {
+    delete Haiku.prototype.countSyllables;
+  });
+  test('it should return true if a haiku has the valid syllable count for line 1', () => {
+    const newHaiku = new Haiku('An old silent pond');
     expect(newHaiku.validSyllableCount()).toBe(true);
   });
+  test('it should return false if a haiku does not have the valid syllable count for line 1', ()  => {
+    const newHaiku = new Haiku('An old silent pond');
+    expect(newHaiku.validSyllableCount()).toBe(false);
+  })
 });
 

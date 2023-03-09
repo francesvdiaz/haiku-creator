@@ -13,21 +13,20 @@ export default class Haiku {
     return false;
   };
 
-  static syllableRules = [5,7,5];
-
   validSyllableCount = () => {
     const lines = [this.line1, this.line2, this.line3];
+    const syllableRules = [5,7,5];
+
+    const checkSyllableCount = (line) => {
+      return 5;
+    }
 
     for (let i = 0; i < lines.length; i++) {
-      const syllableCount = this.checkSyllableCount(lines[i]);
-      if (syllableCount !== Haiku.syllableCount[i]) {
+      const syllableCount = checkSyllableCount(lines[i]);
+      if (syllableCount !== syllableRules[i]) {
         return false;
       };
         return true;
       }
     };
   };
-
-  // checkSyllableCount = (line) =>{
-
-  // }
