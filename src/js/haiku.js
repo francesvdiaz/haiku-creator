@@ -11,22 +11,11 @@ export default class Haiku {
       return true;
     }
     return false;
-  };
+    };
 
-  validSyllableCount = () => {
-    const lines = [this.line1, this.line2, this.line3];
-    const syllableRules = [5,7,5];
-
-    const checkSyllableCount = (line) => {
-      return 5;
-    }
-
-    for (let i = 0; i < lines.length; i++) {
-      const syllableCount = checkSyllableCount(lines[i]);
-      if (syllableCount !== syllableRules[i]) {
-        return false;
-      };
-        return true;
-      }
+  checkSyllableCount = (line) => {
+    return 5;
     };
   };
+  
+  
